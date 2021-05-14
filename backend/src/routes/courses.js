@@ -3,7 +3,12 @@ const express = require('express')
 let testData = [
     { 
         title: "Python Basics",
-        description: ""
+        description: "",
+        courses: [
+            1,
+            2,
+            3
+        ]
     },
     { 
         title: "Python Web",
