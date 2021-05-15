@@ -1,7 +1,7 @@
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import {makeExecutableSchema} from 'graphql-tools';
-import {ProductsService} from './products/products.service';
+import {TutorialService} from './tutorials/tutorial.service';
 import {UsersService} from './users/users.service';
 
 const app: express.Application = express();
@@ -32,12 +32,12 @@ let resolvers = {
     }
 };
 
-let productsService = new ProductsService();
+let tutorialService = new TutorialService();
 let usersService = new UsersService();
-typeDefs += productsService.configTypeDefs();
+typeDefs += tutorialService.configTypeDefs();
 typeDefs += usersService.configTypeDefs();
 
-productsService.configResolvers(resolvers);
+tutorialService.configResolvers(resolvers);
 usersService.configResolvers(resolvers);
 
 app.use(
